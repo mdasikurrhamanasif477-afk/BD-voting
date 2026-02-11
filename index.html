@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Clickadila ads -->
+	<script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="131151"></script>
+	
+	<!-- monetag ads -->
+	<script src="https://quge5.com/88/tag.min.js" data-zone="190124" async data-cfasync="false"></script>
+	
+		<meta name="description" content="বাংলাদেশ ভোট জরিপ ২০২৬। আওয়ামী লীগ (AL), বিএনপি (BNP), জাতীয় পার্টি (JP) ও অন্যান্য দলের নির্বাচনী সমীক্ষা ও ফলাফল। ভোটারের মতামত ও পরিসংখ্যান।">
+<meta name="keywords" content="বাংলাদেশ ভোট, নির্বাচন ২০২৬, ভোট জরিপ, নির্বাচনী সমীক্ষা, AL, BNP, JP">
+    <title>বাংলাদেশ নির্বাচন কমান্ড সেন্টার ২০২৬</title>
+    <!-- ফন্ট এবং আইকন -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --neon-gold: #ffd700;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --card-gradient: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Hind Siliguri', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(188, 19, 254, 0.1), transparent 25%), 
+                radial-gradient(circle at 85% 30%, rgba(0, 243, 255, 0.1), transparent 25%);
+        }
+
+        .grid-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            z-index: -1; perspective: 500px;
+        }
+
+        /* --- মডাল স্টাইল (নতুন) --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+            display: none; justify-content: center; align-items: center; z-index: 2000;
+        }
+
+        .modal-box {
+            background: #111; border: 1px solid var(--neon-blue);
+            width: 90%; max-width: 500px; padding: 30px; border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute; top: 15px; right: 15px;
+            color: #fff; background: none; border: none; font-size: 1.2rem; cursor: pointer;
+        }
+
+        .modal-title { color: var(--neon-gold); text-align: center; margin-bottom: 20px; font-size: 1.3rem; }
+        .modal-text { color: #ccc; text-align: center; margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6; }
+
+        /* কন্টেস্ট ফর্ম */
+        .c-form-group { margin-bottom: 15px; }
+        .c-form-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid #444; padding: 10px; border-radius: 5px; color: #fff; outline: none; }
+        .c-form-input:focus { border-color: var(--neon-blue); }
+
+        /* রেফারেল প্রোগ্রেস */
+        .ref-link-box {
+            background: rgba(0, 243, 255, 0.1); border: 1px dashed var(--neon-blue);
+            padding: 10px; word-break: break-all; font-size: 0.85rem; color: #fff; margin-bottom: 15px; border-radius: 5px;
+        }
+        .progress-bar-bg {
+            background: #333; height: 20px; border-radius: 10px; overflow: hidden; margin: 15px 0;
+        }
+        .progress-bar-fill {
+            background: linear-gradient(90deg, var(--neon-gold), var(--neon-purple));
+            height: 100%; width: 0%; transition: width 0.5s ease;
+        }
+
+        /* হিরো টেক্সট স্টাইল */
+        .hero-section {
+            max-width: 1200px; margin: 30px auto; text-align: center; padding: 25px 40px;
+            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);
+            border-radius: 15px; backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.05); position: relative; z-index: 10;
+        }
+        .hero-section p { font-size: 2rem; line-height: 1.8; color: #e0e0e0; font-weight: 400; }
+
+        /* বিজ্ঞাপনের স্টাইল */
+        .ad-container {
+            background: rgba(20, 20, 20, 0.8); border: 1px dashed #444;
+            display: flex; justify-content: center; align-items: center; color: #666; font-size: 0.9rem;
+            margin: 20px 0; position: relative; overflow: hidden;
+        }
+        .ad-label { position: absolute; top: 5px; right: 5px; font-size: 10px; background: #333; padding: 2px 5px; border-radius: 3px; z-index: 2; }
+        .ad-leaderboard { width: 100%; height: 90px; margin: 20px 0; }
+        .ad-sidebar { width: 100%; height: 250px; margin-bottom: 20px; }
+        .ad-feed { width: 100%; height: 100px; margin: 20px 0; }
+        .ad-footer { width: 100%; height: 90px; margin-top: 40px; }
+
+        /* হেডার */
+        header {
+            padding: 20px 5%; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--glass-border); backdrop-filter: blur(10px);
+            position: sticky; top: 0; z-index: 100;
+        }
+        .logo {
+            font-family: 'Orbitron', sans-serif; font-size: 1.5rem;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+        }
+        .nav-btn {
+            background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); color: white;
+            padding: 8px 20px; border-radius: 5px; cursor: pointer; transition: 0.3s; font-size: 0.9rem;
+        }
+        .nav-btn:hover { background: var(--neon-blue); color: black; box-shadow: 0 0 15px var(--neon-blue); }
+
+        /* লেআউট গ্রিড */
+        .layout-wrapper { display: grid; grid-template-columns: 1fr 320px; gap: 30px; max-width: 1400px; margin: 0 auto; padding: 20px; }
+        @media (max-width: 992px) { .layout-wrapper { grid-template-columns: 1fr; } .ad-sidebar { height: 100px; } }
+        .main-content { min-width: 0; }
+
+        /* সেকশন ট্রানজিশন */
+        .view-section { display: none; animation: fadeIn 0.5s ease; }
+        .view-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ইউজার ভিউ */
+        .party-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .party-card {
+            background: var(--card-gradient); border: 1px solid var(--glass-border); border-radius: 20px;
+            padding: 25px; text-align: center; transition: all 0.4s ease; position: relative; overflow: hidden; backdrop-filter: blur(10px);
+        }
+        .party-card:hover { transform: translateY(-5px); border-color: var(--neon-blue); box-shadow: 0 0 30px rgba(0, 243, 255, 0.2); }
+        .leader-img-wrapper {
+            width: 100px; height: 100px; margin: 0 auto 15px; border-radius: 50%; padding: 3px;
+            background: linear-gradient(var(--neon-blue), var(--neon-purple)); box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
+        }
+        .leader-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--bg-dark); }
+        .party-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; color: #fff; }
+        .party-meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px; }
+        .symbol-badge {
+            display: inline-block; background: rgba(255, 215, 0, 0.1); color: var(--neon-gold);
+            padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(255, 215, 0, 0.3); margin-bottom: 15px;
+        }
+        .vote-btn {
+            background: linear-gradient(90deg, var(--neon-blue), #00a8ff); border: none; padding: 10px 20px;
+            color: #000; font-weight: 700; border-radius: 30px; cursor: pointer; width: 100%;
+            transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;
+        }
+        .vote-btn:hover { box-shadow: 0 0 20px var(--neon-blue); transform: scale(1.05); }
+
+        /* অ্যাডমিন প্যানেল */
+        .admin-dashboard { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 20px; padding: 30px; backdrop-filter: blur(20px); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .stat-card { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid var(--glass-border); }
+        .stat-number { font-size: 2rem; font-weight: 700; color: var(--neon-blue); font-family: 'Orbitron', sans-serif; }
+        .add-party-form { background: rgba(0,0,0,0.4); padding: 20px; border-radius: 15px; margin-bottom: 30px; border-left: 4px solid var(--neon-purple); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group.full-width { grid-column: span 2; }
+        label { display: block; margin-bottom: 5px; color: var(--neon-blue); font-size: 0.9rem; }
+        input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 10px; border-radius: 5px; color: #fff; outline: none; }
+        input:focus { border-color: var(--neon-blue); }
+        .btn-submit { background: var(--neon-purple); color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer; font-weight: 600; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; }
+        th, td { text-align: left; padding: 10px; border-bottom: 1px solid var(--glass-border); }
+        th { color: var(--neon-blue); font-family: 'Orbitron', sans-serif; }
+        .action-btn { background: transparent; border: 1px solid #ff4444; color: #ff4444; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+        .action-btn:hover { background: #ff4444; color: white; }
+
+        /* ফলাফল চার্ট */
+        .chart-container { margin-top: 30px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 20px; display: none; }
+        .bar-wrapper { margin-bottom: 15px; }
+        .bar-label { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; }
+        .bar-bg { background: rgba(255,255,255,0.1); height: 10px; border-radius: 5px; overflow: hidden; }
+        .bar-fill { height: 100%; background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple)); width: 0%; transition: width 1s ease; }
+
+        /* কমেন্ট সেকশন */
+        .comment-section { max-width: 800px; margin: 40px auto 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 20px; padding: 30px; backdrop-filter: blur(10px); position: relative; z-index: 5; }
+        .comment-header { margin-bottom: 20px; color: var(--neon-blue); text-align: center; font-size: 1.5rem; font-weight: 600; }
+        .comment-display-area { max-height: 400px; overflow-y: auto; margin-bottom: 20px; padding-right: 10px; }
+        .comment-display-area::-webkit-scrollbar { width: 6px; }
+        .comment-display-area::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 3px; }
+        .single-comment { background: rgba(0,0,0,0.4); padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 3px solid var(--neon-purple); animation: slideLeft 0.3s ease; }
+        @keyframes slideLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+        .comment-user { color: var(--neon-gold); font-size: 0.9rem; font-weight: bold; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+        .comment-text { color: #e0e0e0; font-size: 0.95rem; line-height: 1.6; }
+        .comment-input-area { display: grid; gap: 10px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 15px; }
+        .c-input, .c-textarea { width: 100%; background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); padding: 12px; border-radius: 8px; color: #fff; outline: none; font-family: 'Hind Siliguri'; transition: 0.3s; }
+        .c-input:focus, .c-textarea:focus { border-color: var(--neon-blue); }
+        .c-textarea { height: 80px; resize: none; }
+        .c-submit-btn { background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue)); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; width: 100%; transition: 0.3s; }
+        .c-submit-btn:hover { opacity: 0.9; box-shadow: 0 0 15px var(--neon-purple); }
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+
+    <!-- হেডার -->
+    <header>
+        <div class="logo"><img src="https://flagcdn.com/w40/bd.png" alt="Bangladesh Flag"> BANGLADESH E-VOTE BD 2026</div>
+        <div>
+            <button class="nav-btn" onclick="switchView('user')"><i class="fas fa-home"></i> হোম</button>
+            <button class="nav-btn" onclick="checkAdminAccess()"><i class="fas fa-user-shield"></i>এখানে গফ বিতারন করা হয়</button>
+        </div>
+    </header>
+
+    <!-- হিরো টেক্সট -->
+    <div class="hero-section">
+        <p>বাংলাদেশ ভোট জরিপ ২০২৬–এ দেশের প্রধান রাজনৈতিক দলগুলোর জনপ্রিয়তা এবং নির্বাচনী সমীক্ষার জরিপ চলছে। বিএনপি (ধানের শীষ), বাংলাদেশ  জামায়েত ইসলামি (দাঁড়িপাল্লা), জাতীয় নাগরিক পার্টি (শাপলা-কলি)এবং অন্যান্য দলগুলো ভোটারের মতামত বিশ্লেষণ করা হয়েছে। ওয়েবসাইটটি লাইভ ভোট ফলাফল, গ্রাফ ও পরিসংখ্যান প্রদর্শন করে ভোটারদের সঠিক ধারণা দেয়।</p>
+    </div>
+
+    <!-- ১. টপ বিজ্ঞাপন -->
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+        <div class="ad-container ad-leaderboard"><span class="ad-label">Advertisement</span><script>
+  atOptions = {
+    'key' : '2be2d10619ffc6c563c3336cde50e020',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://beastlyfluke.com/2be2d10619ffc6c563c3336cde50e020/invoke.js"></script></div>
+    </div>
+
+    <div class="layout-wrapper">
+        <!-- বাম পাশ: মূল কন্টেন্ট -->
+        <div class="main-content">
+            <!-- ইউজার ভিউ -->
+            <div id="user-view" class="view-section active">
+                <h2 style="text-align: center; margin-bottom: 20px;">আপনার পছন্দের দলকে😇 ভোট🗳️ দিয়ে জয়যুক্ত করুন। 🇧🇩দেশের চাবি🔑 আপনার হাতে👨‍🔧।</h2>
+                <div class="party-grid" id="user-party-grid"></div>
+
+                <!-- ৩. ইন-ফিড বিজ্ঞাপন -->
+                <div class="ad-container ad-feed"><span class="ad-label">Sponsored</span><script async src="https://zmonei.com/na/waWQiOjExMjg3ODksInNpZCI6MTE2NDU4OSwid2lkIjo1MDYzMTEsInNyYyI6Mn0=eyJ.js"></script></div>
+
+                <!-- ফলাফল সেকশন -->
+                <div id="vote-status-msg" style="text-align: center; color: var(--text-muted); margin: 20px 0;"></div>
+                <div style="text-align: center;">
+                    <button id="show-results-btn" class="nav-btn" style="display: none;" onclick="toggleResults()">ফলাফল দেখুন</button>
+                    <button id="reset-vote-btn" class="nav-btn" style="display: none; border-color: #ff4444; color: #ff4444; margin-left: 10px;" onclick="resetMyVote()">ভোট পরিবর্তন</button>
+                </div>
+                <div class="chart-container" id="result-chart">
+                    <h3 style="text-align: center; margin-bottom: 15px;">লাইভ জরিপ ফলাফল</h3>
+                    <div id="chart-bars"></div>
+                </div>
+            </div>
+
+            <!-- অ্যাডমিন ভিউ -->
+            <div id="admin-view" class="view-section">
+                <div class="admin-dashboard">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2>অ্যাডমিন প্যানেল</h2>
+                        <button class="nav-btn" onclick="logout()">লগআউট</button>
+                    </div>
+                    
+                    <!-- ট্যাবস -->
+                    <div style="margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px;">
+                        <button class="nav-btn" onclick="showAdminTab('general')" id="tab-general">সাধারণ</button>
+                        <button class="nav-btn" onclick="showAdminTab('referral')" id="tab-referral">রেফারেল ইউজার</button>
+                    </div>
+
+                    <!-- জেনারেল ট্যাব -->
+                    <div id="admin-tab-general">
+                        <div class="stats-grid">
+                            <div class="stat-card"><div class="stat-number" id="total-parties-count">0</div><div>দল</div></div>
+                            <div class="stat-card"><div class="stat-number" id="total-votes-count">0</div><div>মোট ভোট</div></div>
+                        </div>
+                        <div class="add-party-form">
+                            <h3 style="margin-bottom: 15px; color: var(--neon-purple);">নতুন দল যুক্ত করুন</h3>
+                            <form onsubmit="addNewParty(event)">
+                                <div class="form-grid">
+                                    <div class="form-group"><label>দলের নাম</label><input type="text" id="p-name" required></div>
+                                    <div class="form-group"><label>প্রতীক</label><input type="text" id="p-symbol" required></div>
+                                    <div class="form-group"><label>প্রধান</label><input type="text" id="p-leader" required></div>
+                                    <div class="form-group"><label>ছবির লিংক</label><input type="url" id="p-img"></div>
+                                </div>
+                                <button type="submit" class="btn-submit">দল যুক্ত করুন</button>
+                            </form>
+                        </div>
+                        <div class="party-table-container">
+                            <table id="admin-party-table"><thead><tr><th>নাম</th><th>প্রতীক</th><th>ভোট</th><th>অ্যাকশন</th></tr></thead><tbody></tbody></table>
+                        </div>
+                        <div style="margin-top: 20px; text-align: right;">
+                            <button class="action-btn" onclick="resetAllVotes()">সব ভোট রিসেট</button>
+                        </div>
+                    </div>
+
+                    <!-- রেফারেল ট্যাব (নতুন) -->
+                    <div id="admin-tab-referral" style="display: none;">
+                        <h3 style="margin-bottom: 20px; color: var(--neon-gold);">লটারি ও রেফারেল তালিকা</h3>
+                        <div class="party-table-container">
+                            <table id="referral-table">
+                                <thead><tr><th>নাম</th><th>ফোন</th><th>রেফার কোড</th><th>মোট ভিজিট</th><th>অ্যাকশন</th></tr></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ৪. ফুটার বিজ্ঞাপন -->
+            <div class="ad-container ad-footer"><span class="ad-label">Advertisement</span><script async="async" data-cfasync="false" src="https://beastlyfluke.com/4378e71b83611ea90c9e71b656281cd8/invoke.js"></script>
+<div id="container-4378e71b83611ea90c9e71b656281cd8"></div></div>
+
+            <!-- কমেন্ট সেকশন -->
+            <div class="comment-section">
+                <h3 class="comment-header"><i class="fas fa-comments"></i> মতামত দিন</h3>
+                <div class="comment-display-area" id="comment-list"></div>
+                <div class="comment-input-area">
+                    <input type="text" id="c-name" class="c-input" placeholder="আপনার নাম">
+                    <textarea id="c-text" class="c-textarea" placeholder="আপনার মতামত এখানে লিখুন..."></textarea>
+                    <button class="c-submit-btn" onclick="postComment()">কমেন্ট পোস্ট করুন</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ডান পাশ: সাইডবার (বিজ্ঞাপন) -->
+        <aside class="sidebar-ads">
+            <div class="ad-container ad-sidebar"><span class="ad-label">Ad</span><script>
+  atOptions = {
+    'key' : '98e61db05f229faec28461c97a5ed68b',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://beastlyfluke.com/98e61db05f229faec28461c97a5ed68b/invoke.js"></script></div>
+            <div class="ad-container ad-sidebar"><span class="ad-label">Ad</span><div data-banner-id="499056"></div></div>
+        </aside>
+    </div>
+
+    <!-- মডাল: লগইন -->
+    <div id="login-modal" class="modal-overlay">
+        <div class="login-box" style="background: #111; padding: 30px; border-radius: 15px; border: 1px solid var(--neon-blue); width: 90%; max-width: 350px; text-align: center;">
+            <h3 style="margin-bottom: 15px; color: var(--neon-blue);">ফ্রীতে গফ নিতে আসচোছচ। লগিন কর পারলে।</h3>
+            <input type="password" id="admin-pass" placeholder="পাসওয়ার্ড (1234)" style="margin-bottom: 15px; width:100%; background:rgba(255,255,255,0.05); border:1px solid #444; padding:10px; color:#fff;">
+            <button class="btn-submit" onclick="attemptLogin()" style="width: 100%;">তোমার গফরে ঠাপাতে চাইলে ক্লিক করো</button>
+            <button class="nav-btn" style="margin-top: 10px; border: none; background: transparent;" onclick="closeModal('login-modal')">বন্ধ কর ভাই। তুই এডি পারবি না</button>
+        </div>
+    </div>
+
+    <!-- মডাল: কন্টেস্ট ফর্ম -->
+    <div id="contest-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('contest-modal')">&times;</button>
+            <h3 class="modal-title">🎉 অভিনন্দন! ভোট সফল হয়েছে</h3>
+            <p class="modal-text">ধন্যবাদ আপনার মূল্যবান ভোট টা দেওয়ার জন্য। আপনার পছন্দের দল টি নির্বাচিত হলে আপনাকে লটারির মাধ্যমে একটা গিফট আপনার দেওয়া ঠিকানাতে যোগাযোগ করা হবে। নিচের ফ্রম টা পুরন করুন</p>
+            <form onsubmit="submitContest(event)">
+                <div class="c-form-group"><input type="text" id="c-name" class="c-form-input" placeholder="আপনার নাম" required></div>
+                <div class="c-form-group"><input type="email" id="c-email" class="c-form-input" placeholder="ইমেইল" required></div>
+                <div class="c-form-group"><input type="tel" id="c-phone" class="c-form-input" placeholder="ফোন নাম্বার" required></div>
+                <div class="c-form-group"><input type="text" id="c-telegram" class="c-form-input" placeholder="টেলিগ্রাম আইডি"></div>
+                <div class="c-form-group"><textarea id="c-address" class="c-textarea" placeholder="আপনার ঠিকানা" required></textarea></div>
+                <button type="submit" class="c-submit-btn">ফর্ম সাবমিট করুন</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- মডাল: রেফারেল -->
+    <div id="referral-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('referral-modal')">&times;</button>
+            <h3 class="modal-title">🎁 রিওয়ার্ড পান</h3>
+            <p class="modal-text">১০জন বন্ধুকে শেয়ার করলে তারা এই ওয়েবসাইট ভিজিট করলে আপনার ফোন নাম্বারে ৫০টাকা রিচার্জ পাবেন।এটা অটোমেটিক আপনার নাম্বারে চলে যাবে, তাই এখনি শেয়ার করুন আপনার ১০জন বন্ধুদের</p>
+            
+            <div class="ref-link-box" id="share-link">Generating Link...</div>
+            <button class="c-submit-btn" onclick="copyLink()">লিংক কপি করুন</button>
+            
+            <h4 style="margin-top: 20px; text-align: center; color: var(--neon-gold);">আপনার অগ্রগতি</h4>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="my-progress-bar"></div>
+            </div>
+            <p style="text-align: center; font-size: 0.9rem; color: #ccc;">মোট ভিজিট: <span id="visit-count" style="color: var(--neon-blue); font-weight: bold;">0</span>/10</p>
+        </div>
+    </div>
+
+    <script>
+        // --- সেটআপ ---
+        const DB_KEY = 'bd_election_system_v3_fixed';
+        const USER_VOTE_KEY = 'bd_user_vote_status_v3';
+        const COMMENT_KEY = 'bd_vote_comments_v1';
+        const REF_DB_KEY = 'bd_referral_db_v1'; // রেফারেল ডাটাবেস
+        const MY_REF_ID_KEY = 'bd_my_ref_id'; // বর্তমান ইউজারের রেফার আইডি
+
+        const defaultData = [
+            { id: 1, name: 'বাংলাদেশ জাতীয়তাবাদী দল - বি.এন.পি', symbol: 'ধানের শীষ', leader: 'দেশ নায়ক তারেক রহমান', image: 'https://asset.ecs.gov.bd/media/uploaded_files/package/filemanager/2026/01/Tarique-Rahman.jpeg', votes: 0 },
+            { id: 2, name: 'বাংলাদেশ জামায়াতে ইসলামী', symbol: 'দাঁড়িপাল্লা', leader: 'জননেতা ডা. শফিকুর রহমান', image: 'https://asset.ecs.gov.bd/media/uploaded_files/package/filemanager/2025/07/Dr.-Shafiqur-Rahman.jpg', votes: 0 },
+            { id: 3, name: 'জাতীয় নাগরিক পার্টি-এনসিপি', symbol: 'শাপলা কলি', leader: 'নাহিদ ইসলাম', image: 'https://asset.ecs.gov.bd/media/uploaded_files/package/filemanager/2025/12/Nahid_islam.jpg', votes: 0 }
+        ];
+
+        // --- কোর ফাংশন ---
+        function getData() {
+            try { const data = localStorage.getItem(DB_KEY); return (data && Array.isArray(JSON.parse(data))) ? JSON.parse(data) : defaultData; }
+            catch (e) { return defaultData; }
+        }
+        function saveData(data) { localStorage.setItem(DB_KEY, JSON.stringify(data)); renderAll(); }
+
+        // --- ইনিশিয়ালাইজেশন ---
+        document.addEventListener('DOMContentLoaded', () => {
+            checkReferralVisit(); // চেক করব কেউ রেফার করে আসছে কিনা
+            renderAll();
+            checkUserVoteStatus();
+            renderComments();
+        });
+
+        // --- রেফারেল লজিক (নতুন) ---
+        function checkReferralVisit() {
+            const params = new URLSearchParams(window.location.search);
+            const refId = params.get('ref');
+            
+            if (refId) {
+                const refDb = JSON.parse(localStorage.getItem(REF_DB_KEY) || '{}');
+                if (refDb[refId]) {
+                    refDb[refId].visitCount = (refDb[refId].visitCount || 0) + 1;
+                    localStorage.setItem(REF_DB_KEY, JSON.stringify(refDb));
+                    // ইউজারকে জানানো যে ভিজিট কাউন্ট হয়েছে
+                    alert("আপনার বন্ধুর শেয়ার করা লিংকে ক্লিক করার জন্য ধন্যবাদ! বন্ধুর কাউন্টার বেড়েছে। আপনি যদি গিফট পেতে চান তাহলে আপনি এখনি শেয়ার করুন");
+                }
+                // URL পরিষ্কার করা
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        }
+
+        function renderAll() {
+            const parties = getData();
+            renderUserGrid(parties);
+            renderAdminTable(parties);
+            renderAdminStats(parties);
+            renderChart(parties);
+        }
+
+        // --- ইউজার ভোটিং ---
+        function renderUserGrid(parties) {
+            const grid = document.getElementById('user-party-grid'); grid.innerHTML = '';
+            parties.forEach(party => {
+                const card = document.createElement('div'); card.className = 'party-card';
+                const imgSrc = party.image || `https://picsum.photos/seed/${party.id}/200/200`;
+                card.innerHTML = `
+                    <div class="leader-img-wrapper"><img src="${imgSrc}" class="leader-img" onerror="this.src='https://via.placeholder.com/150'"></div>
+                    <div class="symbol-badge">প্রতীক: ${party.symbol}</div>
+                    <h3 class="party-title">${party.name}</h3>
+                    <div class="party-meta">${party.leader}</div>
+                    <button class="vote-btn" onclick="castVote('${party.id}')">ভোট দিন</button>
+                `; grid.appendChild(card);
+            });
+        }
+
+        function castVote(partyId) {
+            if (localStorage.getItem(USER_VOTE_KEY)) { alert("ভাই তুই আগেই ভোট দিছোছ। আবার আইচোচ দিতে। ভাগ সালা!"); return; }
+            try {
+                const parties = getData(); const partyIndex = parties.findIndex(p => p.id == partyId);
+                if (partyIndex !== -1) {
+                    parties[partyIndex].votes++; saveData(parties); localStorage.setItem(USER_VOTE_KEY, 'true');
+                    
+                    // ভোট সফল হওয়ার সাথে সাথে কন্টেস্ট মডাল ওপেন
+                    openModal('contest-modal');
+                    
+                    checkUserVoteStatus();
+                }
+            } catch (error) { alert("সমস্যা হয়েছে।"); }
+        }
+
+        // --- কন্টেস্ট ফর্ম হ্যান্ডলিং (নতুন) ---
+        function submitContest(e) {
+            e.preventDefault();
+            const name = document.getElementById('c-name').value;
+            const email = document.getElementById('c-email').value;
+            const phone = document.getElementById('c-phone').value;
+            const telegram = document.getElementById('c-telegram').value;
+            const address = document.getElementById('c-address').value;
+
+            // রেফার আইডি জেনারেট
+            const uniqueRefId = 'REF' + Date.now().toString().slice(-6);
+            
+            // ডাটা সেভ
+            const refDb = JSON.parse(localStorage.getItem(REF_DB_KEY) || '{}');
+            refDb[uniqueRefId] = {
+                name, email, phone, telegram, address, visitCount: 0, date: new Date().toISOString()
+            };
+            localStorage.setItem(REF_DB_KEY, JSON.stringify(refDb));
+            localStorage.setItem(MY_REF_ID_KEY, uniqueRefId);
+
+            closeModal('contest-modal');
+            openModal('referral-modal');
+            
+            // রেফারেল মডালে ডাটা লোড
+            loadReferralData();
+        }
+
+        function loadReferralData() {
+            const myId = localStorage.getItem(MY_REF_ID_KEY);
+            const refDb = JSON.parse(localStorage.getItem(REF_DB_KEY) || '{}');
+            const myData = refDb[myId];
+
+            if (myData) {
+                const link = window.location.href.split('?')[0] + "?ref=" + myId;
+                document.getElementById('share-link').innerText = link;
+                updateReferralProgress(myData.visitCount || 0);
+            }
+        }
+
+        function copyLink() {
+            const text = document.getElementById('share-link').innerText;
+            navigator.clipboard.writeText(text).then(() => alert("লিংক কপি হয়েছে! ৫০টাকা রিচার্জ পেতে এখন শেয়ার করুন।"));
+        }
+
+        function updateReferralProgress(count) {
+            const percent = Math.min((count / 10) * 100, 100);
+            document.getElementById('my-progress-bar').style.width = percent + "%";
+            document.getElementById('visit-count').innerText = count;
+        }
+
+        function checkUserVoteStatus() {
+            const hasVoted = localStorage.getItem(USER_VOTE_KEY);
+            const hasSubmittedContest = localStorage.getItem(MY_REF_ID_KEY);
+            const statusMsg = document.getElementById('vote-status-msg');
+            const showResBtn = document.getElementById('show-results-btn');
+            const resetBtn = document.getElementById('reset-vote-btn');
+            const chart = document.getElementById('result-chart');
+
+            if (hasVoted) {
+                statusMsg.innerText = "আপনি ইতিমধ্যেই ভোট দিয়েছেন।";
+                showResBtn.style.display = 'inline-block';
+                resetBtn.style.display = 'inline-block';
+                chart.style.display = 'block';
+                renderChart(getData());
+
+                // ভোট দিয়েছে কিন্তু কন্টেস্ট ফর্ম ফিল করেনি? (পেজ রিলোড দিলেও আবার দেখাবে না, শুধু প্রথমবার)
+                // আমরা এখানে একটি চেক রাখতে পারি যদি ইউজার পেজ রিফ্রেশ দিয়ে থাকে
+                if (!hasSubmittedContest && !localStorage.getItem('contest_popup_shown')) {
+                   // openModal('contest-modal'); // অটো ওপেন করলে বিরক্তি হতে পারে, তাই বাদ দেওয়া হলো।
+                }
+            } else {
+                statusMsg.innerText = ""; showResBtn.style.display = 'none'; resetBtn.style.display = 'none'; chart.style.display = 'none';
+            }
+        }
+
+        function resetMyVote() {
+            if(confirm("আপনি কি আপনার ভোট বাতিল করে নতুন করে ভোট দিতে চান?")) {
+                localStorage.removeItem(USER_VOTE_KEY);
+                localStorage.removeItem(MY_REF_ID_KEY); // রেফারেলও রিসেট
+                location.reload();
+            }
+        }
+
+        function toggleResults() { const chart = document.getElementById('result-chart'); chart.style.display = (chart.style.display === 'none') ? 'block' : 'none'; }
+
+        // --- চার্ট ---
+        function renderChart(parties) {
+            const container = document.getElementById('chart-bars'); container.innerHTML = '';
+            const totalVotes = parties.reduce((sum, p) => sum + p.votes, 0);
+            const sortedParties = [...parties].sort((a, b) => b.votes - a.votes);
+            sortedParties.forEach(p => {
+                const percent = totalVotes === 0 ? 0 : ((p.votes / totalVotes) * 100).toFixed(1);
+                const wrapper = document.createElement('div'); wrapper.className = 'bar-wrapper';
+                wrapper.innerHTML = `<div class="bar-label"><span>${p.name}</span><span>${percent}%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 0%"></div></div>`;
+                container.appendChild(wrapper);
+                setTimeout(() => wrapper.querySelector('.bar-fill').style.width = `${percent}%`, 100);
+            });
+        }
+
+        // --- অ্যাডমিন প্যানেল ---
+        function checkAdminAccess() {
+            if (sessionStorage.getItem('admin_logged_in')) { switchView('admin'); } else { openModal('login-modal'); }
+        }
+        function attemptLogin() {
+            if (document.getElementById('admin-pass').value === 'Shojib@101') { sessionStorage.setItem('admin_logged_in', 'true'); closeModal('login-modal'); switchView('admin'); }
+            else { alert("তোমার গফরে ঠাপাতে পারতাছো না? তাহলে তোমার গফ এর নাম্বার টা দিয়ে লগিন করে দেখো। হয়ে যাবে।!"); }
+        }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function logout() { sessionStorage.removeItem('admin_logged_in'); switchView('user'); }
+        function switchView(viewName) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            document.getElementById(`${viewName}-view`).classList.add('active');
+        }
+
+        // ট্যাব সুইচিং
+        function showAdminTab(tabName) {
+            document.getElementById('admin-tab-general').style.display = 'none';
+            document.getElementById('admin-tab-referral').style.display = 'none';
+            document.getElementById(`admin-tab-${tabName}`).style.display = 'block';
+            if(tabName === 'referral') renderReferralTable();
+        }
+
+        function renderAdminTable(parties) {
+            const tbody = document.querySelector('#admin-party-table tbody'); tbody.innerHTML = '';
+            parties.forEach(party => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${party.name}</td><td>${party.symbol}</td><td style="color: var(--neon-gold); font-weight: bold;">${party.votes}</td><td><button class="action-btn" onclick="deleteParty(${party.id})">ডিলিট</button></td>`;
+                tbody.appendChild(tr);
+            });
+        }
+        function renderAdminStats(parties) {
+            document.getElementById('total-parties-count').innerText = parties.length;
+            document.getElementById('total-votes-count').innerText = parties.reduce((sum, p) => sum + p.votes, 0);
+        }
+        function addNewParty(e) {
+            e.preventDefault();
+            const parties = getData();
+            const newParty = { id: Date.now(), name: document.getElementById('p-name').value, symbol: document.getElementById('p-symbol').value, leader: document.getElementById('p-leader').value, image: document.getElementById('p-img').value, votes: 0 };
+            parties.push(newParty); saveData(parties); e.target.reset(); alert("দল যুক্ত হয়েছে!");
+        }
+        function deleteParty(id) {
+            if(confirm("ডিলিট করতে চান?")) { const parties = getData(); saveData(parties.filter(p => p.id != id)); }
+        }
+        function resetAllVotes() {
+            if(confirm("সব ভোট ০ করে দেবেন?")) { const parties = getData().map(p => ({...p, votes: 0})); saveData(parties); }
+        }
+
+        // --- রেফারেল অ্যাডমিন টেবিল (নতুন) ---
+        function renderReferralTable() {
+            const tbody = document.querySelector('#referral-table tbody'); tbody.innerHTML = '';
+            const refDb = JSON.parse(localStorage.getItem(REF_DB_KEY) || '{}');
+            
+            Object.keys(refDb).forEach(key => {
+                const u = refDb[key];
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${u.name}</td>
+                    <td>${u.phone}</td>
+                    <td>${key}</td>
+                    <td style="color: var(--neon-blue);">${u.visitCount}</td>
+                    <td><button class="action-btn" onclick="deleteRefUser('${key}')">ডিলিট</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function deleteRefUser(key) {
+            if(confirm("ইউজার ডিলিট করতে চান?")) {
+                const refDb = JSON.parse(localStorage.getItem(REF_DB_KEY) || '{}');
+                delete refDb[key];
+                localStorage.setItem(REF_DB_KEY, JSON.stringify(refDb));
+                renderReferralTable();
+            }
+        }
+
+        // --- কমেন্ট সিস্টেম ---
+        function renderComments() {
+            const list = document.getElementById('comment-list'); const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]'); list.innerHTML = '';
+            comments.reverse().forEach(c => {
+                const div = document.createElement('div'); div.className = 'single-comment';
+                div.innerHTML = `<div class="comment-user"><i class="fas fa-user-circle"></i> ${c.name}</div><div class="comment-text">${c.text}</div>`;
+                list.appendChild(div);
+            });
+        }
+        function postComment() {
+            const nameIn = document.getElementById('c-name'); const textIn = document.getElementById('c-text');
+            const name = nameIn.value.trim(); const text = textIn.value.trim();
+            if (!name || !text) { alert("দয়া করে আপনার নাম এবং মতামত লিখুন।"); return; }
+            const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+            comments.push({ name: name, text: text, date: new Date().toISOString() });
+            localStorage.setItem(COMMENT_KEY, JSON.stringify(comments));
+            nameIn.value = ''; textIn.value = ''; renderComments();
+        }
+    </script>
+</body>
+</html>
